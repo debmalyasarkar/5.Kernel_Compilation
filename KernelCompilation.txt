@@ -1,0 +1,12 @@
+sudo apt-get install libncurses5-dev gcc make git exuberant-ctags cscope libssl-dev tree
+sudo su
+mkdir /usr/ksrc
+cd ksrc/
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+cd linux-stable/
+git checkout -b stable v4.9.9
+make help
+make menuconfig
+make -j8
+make modules_install -j8
+make install
